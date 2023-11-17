@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Video: {{ video.title }}
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">{{ video.title }}</h1>
+
+    <video
+            controls
+            preload="auto"
+            width="1000"
+            height="800"
+    >
+        <source src="{% url 'stream' video.id %}" type="video/mp4">
+        <source src="{% url 'stream' video.id %}" type="video/webm">
+    </video>
+
+{% endblock %}
